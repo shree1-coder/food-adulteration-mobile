@@ -10,6 +10,7 @@ class AppRouter {
   static const String newTest = '/new-test';
   static const String history = '/history';
   static const String analytics = '/analytics';
+  static const String settings = '/settings';
 
   static Map<String, WidgetBuilder> get routes => {
         home: (context) => const HomeScreen(),
@@ -26,7 +27,10 @@ class AppRouter {
         analytics: (context) => const _PlaceholderScreen(
               title: 'Analytics',
             ),
-      };
+        settings: (context) => const _PlaceholderScreen(
+              title: 'Settings',
+            ),
+    };
 }
 
 class _PlaceholderScreen extends StatelessWidget {
