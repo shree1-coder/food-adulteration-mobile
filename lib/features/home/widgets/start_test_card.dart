@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import '../../../app/theme/app_dimensions.dart';
+
 
 class StartTestCard extends StatelessWidget {
   const StartTestCard({
@@ -14,7 +16,7 @@ class StartTestCard extends StatelessWidget {
 
     return Card(
       child: Padding(
-        padding: const EdgeInsets.all(20),
+        padding: const EdgeInsets.all(AppDimensions.cardPadding),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -23,19 +25,19 @@ class StartTestCard extends StatelessWidget {
               size: 40,
               color: theme.colorScheme.primary,
             ),
-            const SizedBox(height: 16),
+            const SizedBox(height: AppDimensions.mediumSpacing),
             Text(
               'Start a New Test',
               style: theme.textTheme.titleLarge?.copyWith(
                 fontWeight: FontWeight.w700,
               ),
             ),
-            const SizedBox(height: 8),
+            const SizedBox(height: AppDimensions.smallSpacing),
             Text(
               'Capture or import a spectrum to analyze your food sample.',
               style: theme.textTheme.bodyMedium,
             ),
-            const SizedBox(height: 20),
+            const SizedBox(height: AppDimensions.cardPadding),
             SizedBox(
               width: double.infinity,
               child: FilledButton.icon(
