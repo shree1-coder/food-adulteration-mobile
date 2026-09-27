@@ -7,6 +7,7 @@ class AppDimensions {
 
   // General spacing
   static const double smallSpacing = 8.0;
+  static const double listSpacing = 12.0;
   static const double mediumSpacing = 16.0;
   static const double largeSpacing = 24.0;
 

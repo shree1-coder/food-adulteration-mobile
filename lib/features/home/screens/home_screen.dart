@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import '../../../app/router.dart';
 import '../../../app/theme/app_dimensions.dart';
 import '../widgets/start_test_card.dart';
@@ -34,19 +35,18 @@ class HomeScreen extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: AppDimensions.sectionSpacing),
-
               StartTestCard(
                 onPressed: () {
-                    Navigator.pushNamed(
-                      context,
-                      AppRouter.newTest,
-                    );
-                  },
-                ),
-              ],
-            ),
+                  Navigator.pushNamed(
+                    context,
+                    AppRouter.newTest,
+                  );
+                },
+              ),
+            ],
           ),
         ),
-      );
-    }
+      ),
+    );
   }
+}

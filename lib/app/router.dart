@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 
 import '../features/home/screens/home_screen.dart';
+import '../features/test/screens/acquisition_method_screen.dart';
+import '../features/test/screens/import_spectrum_screen.dart';
+import '../features/test/screens/new_test_screen.dart';
+import '../models/food_sample.dart';
 
 class AppRouter {
   AppRouter._();
@@ -8,6 +12,8 @@ class AppRouter {
   // Route names
   static const String home = '/';
   static const String newTest = '/new-test';
+  static const String acquisitionMethod = '/acquisition-method';
+  static const String importSpectrum = '/import-spectrum';
   static const String history = '/history';
   static const String analytics = '/analytics';
   static const String settings = '/settings';
@@ -15,22 +21,38 @@ class AppRouter {
   static Map<String, WidgetBuilder> get routes => {
         home: (context) => const HomeScreen(),
 
-        // Temporary placeholders.
-        // These will be replaced with real feature screens
-        // as we build each part of the application.
-        newTest: (context) => const _PlaceholderScreen(
-              title: 'New Test',
-            ),
+        newTest: (context) => const NewTestScreen(),
+
+        acquisitionMethod: (context) {
+          final foodSample =
+              ModalRoute.of(context)!.settings.arguments as FoodSample;
+
+          return AcquisitionMethodScreen(
+            foodSample: foodSample,
+          );
+        },
+
+        importSpectrum: (context) {
+          final foodSample =
+              ModalRoute.of(context)!.settings.arguments as FoodSample;
+
+          return ImportSpectrumScreen(
+            foodSample: foodSample,
+          );
+        },
+
         history: (context) => const _PlaceholderScreen(
               title: 'History',
             ),
+
         analytics: (context) => const _PlaceholderScreen(
               title: 'Analytics',
             ),
+
         settings: (context) => const _PlaceholderScreen(
               title: 'Settings',
             ),
-    };
+      };
 }
 
 class _PlaceholderScreen extends StatelessWidget {
